@@ -1,0 +1,25 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/districtFragment">
+
+    <fragment
+        android:id="@+id/districtFragment"
+        android:name="com.example.cs394_project.Fragments.DistrictFragment"
+        android:label="DistrictFragment"
+        tools:layout="@layout/fragment_district">
+        <action
+            android:id="@+id/action_districtFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.cs394_project.Fragments.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <argument
+            android:name="districtName"
+            app:argType="string" />
+    </fragment>
+</navigation>
