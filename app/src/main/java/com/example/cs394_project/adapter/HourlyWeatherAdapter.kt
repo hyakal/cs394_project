@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cs394_project.R
 import com.example.cs394_project.model.HourlyWeather
 
-class ItemAdapter(private val data: List<HourlyWeather>): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
+class HourlyWeatherAdapter(private val data: List<HourlyWeather>): RecyclerView.Adapter<HourlyWeatherAdapter.ItemViewHolder>(){
     class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view){
         val timeTextView: TextView = view.findViewById(R.id.timeTextView)
         val tempTextView: TextView = view.findViewById(R.id.tempTextView)
