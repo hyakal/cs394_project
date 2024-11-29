@@ -41,7 +41,7 @@
                     android:text="Weather Condition"
                     android:textSize="16sp"
                     android:layout_marginTop="4dp"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@color/text_primary" />
 
                 <TextView
                     android:id="@+id/temperatureTextView"
@@ -50,7 +50,7 @@
                     android:text="11°"
                     android:textSize="64sp"
                     android:textStyle="bold"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_primary"
                     android:layout_marginTop="8dp" />
 
                 <TextView
@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:text="Highest:12° Lowest:7°"
                     android:textSize="16sp"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_primary"
                     android:layout_marginTop="4dp" />
             </LinearLayout>
 
@@ -83,7 +83,6 @@
             android:layout_marginTop="4dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/currentWeatherContainer"
             tools:listitem="@layout/item_hourly_forecast" />
