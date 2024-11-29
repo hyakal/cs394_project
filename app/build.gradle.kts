@@ -37,6 +37,7 @@ android {
     buildFeatures{
         dataBinding = true
     }
+    buildToolsVersion = "35.0.0"
 }
 
 dependencies {

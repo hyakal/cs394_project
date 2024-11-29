@@ -22,4 +22,9 @@
             android:name="districtName"
             app:argType="string" />
     </fragment>
+    <fragment android:id="@+id/placeholder" >
+        <action
+            android:id="@+id/action_placeholder_to_districtFragment"
+            app:popUpTo="@id/districtFragment" />
+    </fragment>
 </navigation>
