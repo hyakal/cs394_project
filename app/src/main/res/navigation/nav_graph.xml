@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/districtFragment"
-        android:name="com.example.cs394_project.Fragments.DistrictFragment"
+        android:name="com.example.cs394_project.fragments.DistrictFragment"
         android:label="DistrictFragment"
         tools:layout="@layout/fragment_district">
         <action
@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.cs394_project.Fragments.MainFragment"
+        android:name="com.example.cs394_project.fragments.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main">
         <argument

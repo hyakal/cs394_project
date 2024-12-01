@@ -1,4 +1,4 @@
-package com.example.cs394_project.Fragments
+package com.example.cs394_project.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cs394_project.R
@@ -43,8 +42,8 @@ class DistrictFragment : Fragment() {
         val districts = districtList.map { District(it) }
 
         // Set up RecyclerView with the DistrictAdapter
-        val adapter = DistrictAdapter(districts) { district ->
-            val action = DistrictFragmentDirections.actionDistrictFragmentToMainFragment(district.name)
+        val adapter = DistrictAdapter(districts) { district: District ->
+           val action = DistrictFragmentDirections.actionDistrictFragmentToMainFragment(district.name)
             findNavController().navigate(action)
         }
 
