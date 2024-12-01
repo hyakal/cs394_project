@@ -7,23 +7,29 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="32dp"
+        android:paddingBottom="32dp"
         tools:context=".fragments.MainFragment">
 
         <!-- Current Weather Section -->
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/currentWeatherContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <!-- Weather Info -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_marginStart="16dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/weatherIcon">
 
                 <TextView
                     android:id="@+id/districtTextView"
@@ -68,14 +74,15 @@
                 android:id="@+id/weatherIcon"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:layout_marginStart="16dp"
-                android:src="@drawable/ic_weather_sunny" />
-        </LinearLayout>
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@id/weatherIcon"
+                android:src="@drawable/ic_weather_sunny"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Hourly Weather Section -->
-
-        <!-- Daily Forecast Section -->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/hourlyRecyclerView"
             android:layout_width="405dp"
@@ -87,6 +94,7 @@
             app:layout_constraintTop_toBottomOf="@id/currentWeatherContainer"
             tools:listitem="@layout/item_hourly_forecast" />
 
+        <!-- Daily Forecast Section -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/dailyRecyclerView"
             android:layout_width="match_parent"
