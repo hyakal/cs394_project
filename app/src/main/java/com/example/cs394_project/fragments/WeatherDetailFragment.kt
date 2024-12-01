@@ -6,9 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.cs394_project.model.District
 import com.example.cs394_project.model.Forecast
-
-class WeatherDetailFragment : ViewModel() {
 /*
+class WeatherDetailFragment : ViewModel() {
+
     private val forecast = Forecast()
 
     private val dailyWeather: MutableLiveData<List<District>> = MutableLiveData()
@@ -29,5 +29,5 @@ class WeatherDetailFragment : ViewModel() {
     override fun onCleared() {
         super.onCleared()
     }
-    */
-}
+    
+}*/
