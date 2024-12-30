@@ -9,8 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cs394_project.R
 import com.example.cs394_project.model.HourlyWeather
 
-class HourlyWeatherAdapter(private val data: List<HourlyWeather>): RecyclerView.Adapter<HourlyWeatherAdapter.ItemViewHolder>(){
-    class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view){
+class HourlyWeatherAdapter(private var data: List<HourlyWeather>) : RecyclerView.Adapter<HourlyWeatherAdapter.ItemViewHolder>() {
+
+    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val timeTextView: TextView = view.findViewById(R.id.timeTextView)
         val tempTextView: TextView = view.findViewById(R.id.tempTextView)
         val weatherIcon: ImageView = view.findViewById(R.id.weatherIcon)
@@ -36,5 +37,8 @@ class HourlyWeatherAdapter(private val data: List<HourlyWeather>): RecyclerView.
         holder.bind(weather)
     }
 
-
+    fun updateData(newData: List<HourlyWeather>) {
+        data = newData
+        notifyDataSetChanged()
+    }
 }

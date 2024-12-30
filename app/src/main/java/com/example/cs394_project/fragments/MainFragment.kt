@@ -22,11 +22,12 @@ class MainFragment : Fragment() {
     private val viewModel: WeatherViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
+    ): View {
+        binding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_main, container, false
+        )
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
         return binding.root
@@ -35,21 +36,21 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Retrieve district name from arguments and pass it to ViewModel
-        val districtName = arguments?.getString("districtName") ?: "Unknown District"
-        viewModel.updateDistrict(districtName)
+        // Retrieve city name from arguments
+        val cityName = arguments?.getString("cityName") ?: "Unknown City"
+        viewModel.updateDistrict(cityName) // or rename function to updateCity
 
-        // Set up hourly weather RecyclerView
+        // Hourly Recycler
         binding.hourlyRecyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        viewModel.hourlyWeather.observe(viewLifecycleOwner, Observer { hourlyWeather ->
-            binding.hourlyRecyclerView.adapter = HourlyWeatherAdapter(hourlyWeather)
+        viewModel.hourlyWeather.observe(viewLifecycleOwner, Observer { hourlyList ->
+            binding.hourlyRecyclerView.adapter = HourlyWeatherAdapter(hourlyList)
         })
 
-        // Set up daily weather RecyclerView
+        // Daily Recycler
         binding.dailyRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        viewModel.dailyWeather.observe(viewLifecycleOwner, Observer { dailyWeather ->
-            binding.dailyRecyclerView.adapter = DailyWeatherAdapter(dailyWeather)
+        viewModel.dailyWeather.observe(viewLifecycleOwner, Observer { dailyList ->
+            binding.dailyRecyclerView.adapter = DailyWeatherAdapter(dailyList)
         })
     }
 

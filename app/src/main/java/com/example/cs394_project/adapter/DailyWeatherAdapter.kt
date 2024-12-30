@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cs394_project.R
 import com.example.cs394_project.model.DailyWeather
 
-class DailyWeatherAdapter(private val data: List<DailyWeather>) : RecyclerView.Adapter<DailyWeatherAdapter.DailyWeatherViewHolder>() {
+class DailyWeatherAdapter(private var data: List<DailyWeather>) : RecyclerView.Adapter<DailyWeatherAdapter.DailyWeatherViewHolder>() {
+
     class DailyWeatherViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
         val dayTextView: TextView = itemView.findViewById(R.id.dayTextView)
         val weatherIcon: ImageView = itemView.findViewById(R.id.dailyWeatherIcon)
@@ -36,4 +37,8 @@ class DailyWeatherAdapter(private val data: List<DailyWeather>) : RecyclerView.A
         holder.bind(dailyWeather)
     }
 
+    fun updateData(newData: List<DailyWeather>) {
+        data = newData
+        notifyDataSetChanged()
+    }
 }
