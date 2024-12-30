@@ -1,3 +1,3 @@
 package com.example.cs394_project.model
 
-data class District(val name: String)
+data class City(val name: String)

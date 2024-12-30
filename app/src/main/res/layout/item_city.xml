@@ -9,9 +9,9 @@
     android:layout_marginBottom="8dp"
     android:padding="8dp">
 
-    <!-- TextView for displaying the district name -->
+    <!-- TextView for city name -->
     <TextView
-        android:id="@+id/textViewDistrictName"
+        android:id="@+id/textViewCityName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="18sp"

@@ -7,16 +7,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragments.DistrictFragment">
+        tools:context=".fragments.CityFragment">
 
-        <!-- RecyclerView for district list -->
+        <!-- A ScrollView or direct RecyclerView for the list of city names -->
         <ScrollView
-            android:layout_width="408dp"
-            android:layout_height="731dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintEnd_toEndOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -24,9 +24,10 @@
                 android:orientation="horizontal">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerViewDistricts"
+                    android:id="@+id/recyclerViewCities"
                     android:layout_width="match_parent"
-                    android:layout_height="735dp" />
+                    android:layout_height="match_parent" />
+
             </LinearLayout>
         </ScrollView>
 
