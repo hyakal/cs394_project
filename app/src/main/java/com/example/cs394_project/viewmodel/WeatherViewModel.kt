@@ -41,7 +41,7 @@ class WeatherViewModel : ViewModel() {
     val dailyWeather: LiveData<List<DailyWeather>> get() = _dailyWeather
 
     // Put your real WeatherAPI.com key here
-    private val apiKey = "put_your_api_key_here"
+    private val apiKey = "2e12a2329cdf4f01a5523315250701"
 
     fun updateDistrict(selectedCityName: String) {
         _cityName.value = selectedCityName
