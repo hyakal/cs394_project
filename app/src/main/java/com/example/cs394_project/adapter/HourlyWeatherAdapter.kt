@@ -5,11 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cs394_project.R
 import com.example.cs394_project.model.HourlyWeather
 
-class HourlyWeatherAdapter(private var data: List<HourlyWeather>) : RecyclerView.Adapter<HourlyWeatherAdapter.ItemViewHolder>() {
+class HourlyWeatherAdapter(diffCallback: DiffUtil.ItemCallback<HourlyWeather>) :
+    ListAdapter<HourlyWeather, HourlyWeatherAdapter.ItemViewHolder>(diffCallback) {
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val timeTextView: TextView = view.findViewById(R.id.timeTextView)
@@ -24,21 +27,25 @@ class HourlyWeatherAdapter(private var data: List<HourlyWeather>) : RecyclerView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_hourly_forecast, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_hourly_forecast, parent, false)
         return ItemViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return data.size
-    }
-
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val weather = data[position]
+        val weather = getItem(position)
         holder.bind(weather)
     }
 
-    fun updateData(newData: List<HourlyWeather>) {
-        data = newData
-        notifyDataSetChanged()
+    // DiffUtil for efficient updates
+    class HourlyWeatherDiffCallback : DiffUtil.ItemCallback<HourlyWeather>() {
+        override fun areItemsTheSame(oldItem: HourlyWeather, newItem: HourlyWeather): Boolean {
+            return oldItem.time == newItem.time // Assuming 'time' uniquely identifies an item
+        }
+
+        override fun areContentsTheSame(oldItem: HourlyWeather, newItem: HourlyWeather): Boolean {
+            return oldItem == newItem
+        }
     }
 }
+

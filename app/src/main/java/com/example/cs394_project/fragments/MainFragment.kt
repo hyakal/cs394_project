@@ -15,11 +15,16 @@ import com.example.cs394_project.R
 import com.example.cs394_project.adapter.DailyWeatherAdapter
 import com.example.cs394_project.adapter.HourlyWeatherAdapter
 import com.example.cs394_project.databinding.FragmentMainBinding
+import com.example.cs394_project.model.DailyWeather
+import com.example.cs394_project.model.HourlyWeather
 import com.example.cs394_project.viewmodel.WeatherViewModel
 
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
     private val viewModel: WeatherViewModel by viewModels()
+
+    private val hourlyAdapter = HourlyWeatherAdapter(HourlyWeatherAdapter.HourlyWeatherDiffCallback())
+    private val dailyAdapter = DailyWeatherAdapter(DailyWeatherAdapter.DailyWeatherDiffCallback())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,17 +45,21 @@ class MainFragment : Fragment() {
         val cityName = arguments?.getString("cityName") ?: "Unknown City"
         viewModel.updateDistrict(cityName) // or rename function to updateCity
 
-        // Hourly Recycler
+        // Hourly RecyclerView setup
         binding.hourlyRecyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.hourlyRecyclerView.adapter = hourlyAdapter
+
         viewModel.hourlyWeather.observe(viewLifecycleOwner, Observer { hourlyList ->
-            binding.hourlyRecyclerView.adapter = HourlyWeatherAdapter(hourlyList)
+            hourlyAdapter.submitList(hourlyList)
         })
 
-        // Daily Recycler
+        // Daily RecyclerView setup
         binding.dailyRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.dailyRecyclerView.adapter = dailyAdapter
+
         viewModel.dailyWeather.observe(viewLifecycleOwner, Observer { dailyList ->
-            binding.dailyRecyclerView.adapter = DailyWeatherAdapter(dailyList)
+            dailyAdapter.submitList(dailyList)
         })
     }
 
