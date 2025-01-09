@@ -72,7 +72,7 @@ Users can:
 
 ## Contributions
 
-- **hyakal: Design of the 2nd screen such as RecyclerView and MaterialCardView implementations. Implementation of ViewModel, LiveData. Integration of WeatherAPI by utilizing Repository Pattern.
+- **hyakal**: Design of the 2nd screen such as RecyclerView and MaterialCardView implementations. Implementation of ViewModel, LiveData. Integration of WeatherAPI by utilizing Repository Pattern.
 
 ## Credits
 
