@@ -70,6 +70,9 @@ Users can:
    - **Hourly Forecast**: A horizontally scrollable RecyclerView showing hourly weather data for the next 24 hours.
    - **Daily Forecast**: A vertically scrollable RecyclerView displaying weather predictions for the next 5 days.
 
+## Contributions
+
+- **hyakal: Design of the 2nd screen such as RecyclerView and MaterialCardView implementations. Implementation of ViewModel, LiveData. Integration of WeatherAPI by utilizing Repository Pattern.
 
 ## Credits
 
