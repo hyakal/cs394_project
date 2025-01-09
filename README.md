@@ -1,47 +1,87 @@
-**Weather Application** 🌦️
+# Weather Forecast Application
 
-This is a weather forecast application built using Android Studio and Kotlin, with Firebase integrated for user authentication and data storage. The app provides users with localized and real-time weather updates.
+## Overview
 
-**Overview**
+The Weather Forecast Application works for cities in Turkey. The app is designed to be visually appealing, intuitive, and responsive, incorporating Material Design principles and smooth animations.
 
-The application uses the OpenWeatherMap API (or another weather service) to fetch weather data. Firebase is utilized for managing user authentication (login and registration) and storing user-related settings or data securely. The app is designed with a clean and user-friendly interface to enhance the user experience.
+Users can:
+- View the current weather, hourly forecasts, and daily forecasts for a selected city.
+- Navigate between cities and weather details with ease.
 
-**Key Features**
+---
 
-**Real-time Weather Data:** Displays current weather conditions for the user's location.
-**User Authentication:** Users can sign up or log in via Firebase.
-**Multi-day Forecast:** Provides a detailed weather forecast for the week.
-**Localization:** Detects and adapts to the user's device language and region.
-**Dark Mode Compatibility:** Matches the user's device theme for better usability.
+## Features
 
-**Technologies Used**
+- **City Weather Overview**: Select a city from a list to view its weather data.
+- **Hourly Forecast**: Displays weather data for the next 24 hours starting from the current time.
+- **Daily Forecast**: Provides weather predictions for the next 5 days.
+- **Material Design UI**: Styled with Material Design components such as `CardView`, providing a modern and polished look.
+- **Dark and Light Modes**: Supports both dark and light themes for better readability.
+- **RecyclerView Animations**: Smooth animations for RecyclerView items using layout animation.
+- **Fragment Transitions**: Custom animations for transitions between screens.
 
-**Kotlin:** Primary programming language for Android development.
+---
 
-**Android Studio:**IDE used for building the application.
+## Screenshots
 
-**Firebase:** Backend services including:
+### Light Mode
+<img src="screenshots/light_mode.png" alt="Light Mode Screenshot" width="300"/>
 
-Authentication for secure user sign-in.
+### Dark Mode
+<img src="screenshots/dark_mode.png" alt="Dark Mode Screenshot" width="300"/>
 
-Realtime Database for saving user preferences or historical data.
+---
 
-**Weather API:** Integration for fetching live weather updates.
+## Technologies and Libraries Used
 
-**How It Works**
+- **Language**: Kotlin
+- **Frameworks**:
+  - Retrofit2 (HTTP client for API integration)
+  - Moshi (JSON parsing)
+- **Design**:
+  - Material Design Components
+  - RecyclerView with `CardView` for weather items
+- **API**: [WeatherAPI.com](https://www.weatherapi.com) for fetching weather data.
 
-**User Authentication:**
+---
 
-Users sign up or log in using Firebase Authentication.
-Their preferences or past searches can be stored in Firebase Realtime Database.
 
-**Weather Updates:**
+## Installation
 
-The app fetches weather data from a weather API based on the user’s location or a searched location.
-Displays data such as temperature, humidity, wind speed, and forecast.
+### Prerequisites
+- **Android Studio**: Latest version installed.
+- **WeatherAPI Key**: Register at [WeatherAPI.com](https://www.weatherapi.com) to obtain your API key.
 
-**User Experience:**
+### Setup Steps
 
-Adapts to the user's language and region automatically.
-Supports dark and light mode for a better visual experience.
-This application is a great project for learning Kotlin, Android development, and Firebase integration while creating a practical, user-friendly app.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/weather-forecast-app.git
+   cd weather-forecast-app
+   ```
+
+2. Open the project in Android Studio.
+
+3. Add your API key in the `WeatherViewModel.kt` file:
+   ```WeatherViewModel.kt
+   private val apiKey="your_weather_api_key"
+   ```
+
+4. Build and run the app on an emulator or physical device.
+
+---
+
+## Usage
+
+1. Launch the app.
+2. Select a city from the list.
+3. View:
+   - **Current Weather**: Displays the current temperature, condition, and high/low temperatures.
+   - **Hourly Forecast**: A horizontally scrollable RecyclerView showing hourly weather data for the next 24 hours.
+   - **Daily Forecast**: A vertically scrollable RecyclerView displaying weather predictions for the next 5 days.
+
+
+## Credits
+
+- **WeatherAPI.com**: For providing free weather data.
+- **Icons**: Icons are retrived from: https://fonts.google.com
