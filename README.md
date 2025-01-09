@@ -22,16 +22,6 @@ Users can:
 
 ---
 
-## Screenshots
-
-### Light Mode
-<img src="screenshots/light_mode.png" alt="Light Mode Screenshot" width="300"/>
-
-### Dark Mode
-<img src="screenshots/dark_mode.png" alt="Dark Mode Screenshot" width="300"/>
-
----
-
 ## Technologies and Libraries Used
 
 - **Language**: Kotlin
