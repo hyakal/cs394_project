@@ -74,6 +74,12 @@ Users can:
 
 - **hyakal**: Design of the 2nd screen such as RecyclerView and MaterialCardView implementations. Implementation of ViewModel, LiveData. Integration of WeatherAPI by utilizing Repository Pattern.
 
+- **yigit**: focused on UI/UX design, creating the main screen where users can select a city and view its current weather, hourly, and daily forecasts. We implemented Material Design components such as CardView and ensured the application supported both light and dark themes. Additionally, We designed smooth fragment transition animations to enhance the user experience.
+
+- **kaan**: handled backend and API integration by configuring Retrofit2 to fetch weather data from WeatherAPI.com and using Moshi for JSON parsing. We implemented the Repository Pattern to manage data flow and integrated it with the ViewModel for efficient state management. We also addressed error handling for API calls and formatted the weather data for user-friendly display.
+
+- **arjin**: focused on building RecyclerView components for displaying hourly and daily weather forecasts. We styled the RecyclerView items with MaterialCardView, added entry animations for a polished look, and optimized performance for smooth scrolling.
+
 ## Credits
 
 - **WeatherAPI.com**: For providing free weather data.
