@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">cs394_project</string>
+    <string name="hint_search_city">Şehir ara...</string>
 </resources>
