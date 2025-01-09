@@ -15,6 +15,9 @@ import com.example.cs394_project.adapter.CityAdapter
 import com.example.cs394_project.databinding.FragmentCityBinding
 import com.example.cs394_project.model.City
 import com.example.cs394_project.viewmodel.CityViewModel
+import android.text.TextWatcher
+import android.text.Editable
+
 
 class CityFragment : Fragment() {
 
@@ -33,15 +36,24 @@ class CityFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Observe the city list from ViewModel
+
         viewModel.cityList.observe(viewLifecycleOwner, Observer { cities ->
             val adapter = CityAdapter(cities) { city: City ->
-                // Navigate to MainFragment, passing the city name
+
                 val action = CityFragmentDirections.actionCityFragmentToMainFragment(city.name)
                 findNavController().navigate(action)
             }
             binding.recyclerViewCities.layoutManager = LinearLayoutManager(requireContext())
             binding.recyclerViewCities.adapter = adapter
         })
+        binding.searchEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+                viewModel.filterCities(s.toString())
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
     }
 }
+

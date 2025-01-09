@@ -7,7 +7,7 @@ import com.example.cs394_project.model.City
 
 class CityViewModel : ViewModel() {
     private val _cityList = MutableLiveData<List<City>>()
-    val cityList: LiveData<List<City>> get() = _cityList
+    val cityList = MutableLiveData<List<City>>()
 
     init {
         _cityList.value = listOf(
@@ -93,5 +93,17 @@ class CityViewModel : ViewModel() {
             City("Yozgat"),
             City("Zonguldak")
         )
+        cityList.value = _cityList.value
+    }
+    fun filterCities(query: String) {
+        if (query.isEmpty()) {
+            // Eğer arama boşsa, tüm listeyi göster
+            cityList.value = _cityList.value
+        } else {
+            // Arama sorgusuna göre filtrele
+            cityList.value = _cityList.value?.filter { city ->
+                city.name.lowercase().startsWith(query.lowercase())
+            }
+        }
     }
 }
